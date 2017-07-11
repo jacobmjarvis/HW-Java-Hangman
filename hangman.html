@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Pop-up Hangman Game</title>
+</head>
+
+<body>
+    <h1>That Pop-Up Hangman Game doe!</h1>
+
+<script>
+    
+    // Create an array of words
+    
+    var words = [
+      "crumb",
+      "tangerine",
+      "duckling",
+      "splash",
+      "leather",
+      "cash",
+      "socrates",
+      "think",
+      "juice",
+      "tangled",
+      "giraffe",
+      "gandalf",
+      "watch",
+      "chain",
+      "sunflower",
+      "computer",
+      "banister",
+      "inchworm",
+      "cornmeal",
+      "basketball",
+      "barley",
+      "lasagna",
+      "photograph",
+      "forehead",
+      "wallflower",
+	   ];
+    
+    // Picks out a random word from the array
+    
+    var word = words[Math.floor(Math.random() * words.length)];
+    
+    // Sets up the answer array
+    
+    var answerArray = [];
+    for (var i = 0; i < word.length; i++) {
+      answerArray[i] = "_";
+    }
+    var remainingLetters = word.length;
+    
+    // Runs the game loop
+    
+    while (remainingLetters > 0) {
+    
+      // Used to show the player their progress
+    
+      alert(answerArray.join(" "));
+    
+      // Used to accept a guess from the player
+
+var guess = prompt("Please guess a letter, or click Cancel to stop playing.");
+      if (guess === null) {
+
+        // Exits the game loop
+			break;
+      } else if (guess.length !== 1) {
+        alert("Enter a single letter to guess.");
+      } else {
+        for (var j = 0; j < word.length; j++) {
+        	if (word[j] === guess) {
+  answerArray[j] = guess;
+  remainingLetters--;
+		} 
+	}
+}
+
+// Ends the game loop
+
+}
+                  // Displays the answer and congratulates the player
+                  alert(answerArray.join(" "));
+                  alert("You are too smart for your own good. The answer was " + word);
+
+        </script>
+
+    </body>
+</html>
